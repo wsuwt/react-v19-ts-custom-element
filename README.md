@@ -1,50 +1,61 @@
-# React + TypeScript + Vite
+# React 19 with TypeScript and Custom Web Component
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project showcases how to use React 19 and a custom web component together.
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/yourusername/react-v19-ts-custom-element.git
+    cd react-v19-ts-custom-element
+    ```
 
-## Expanding the ESLint configuration
+2. Install dependencies:
+    ```sh
+    npm install
+    ```
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Usage
 
-- Configure the top-level `parserOptions` property like this:
+1. Start the development server:
+    ```sh
+    npm start
+    ```
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+2. Open your browser and navigate to `http://localhost:3000` to see the app in action.
+
+## Project Structure
+
+- `src/`: Contains the source code of the React application.
+- `public/`: Contains the public assets and the HTML template.
+
+### Foobar Web Component
+
+The `Foobar` web component is a custom element that can be used in your React components. It is defined in the `src/Foobar.ts` file.
+
+To use the `Foobar` web component in your React component, you can import and register it as follows:
+
+```typescript
+import './Foobar';
+
+// ...existing code...
+
+const App = () => {
+  return (
+    <div>
+      <h1>Welcome to React 19 with Custom Web Component</h1>
+      <foobar-element></foobar-element>
+    </div>
+  );
+};
+
+export default App;
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Contributing
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Contributions are welcome! Please open an issue or submit a pull request.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## License
+
+This project is licensed under the MIT License.
